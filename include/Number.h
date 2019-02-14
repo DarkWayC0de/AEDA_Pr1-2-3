@@ -44,7 +44,12 @@ public:
     }
     template<size_t U, size_t V,class R, size_t L,size_t P, class Y>
     friend Number<L+1,P,Y> operator+(const Number<L,P,Y>& op1,const  Number<U,V,R>& op2);
-
+    template<size_t U, size_t V,class R, size_t L,size_t P, class Y>
+    friend Number<L+1,P,Y> operator-(const Number<L,P,Y>& op1,const  Number<U,V,R>& op2);
+    template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+    friend Number<L*U,V,R> operator*(const Number<L,P,Y>& op1, const Number<U,V,R>& op2);
+    template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+    friend Number<L*U,V,R> operator/(const Number<L,P,Y>& op1, const Number<U,V,R>& op2);
 
 private:
     int numero_real(char a)const{
@@ -80,13 +85,14 @@ private:
         }
     }
     void rellenar_vector_de_datos(T simbolos[])const{
-        int car= 0;
-        for (int i = 0; i <B ; ++i) {
-            if(i>9){
-                simbolos[i]='A'+ car++;
-            } else{
-                simbolos[i]='0'+i;
+        int car = 0;
+        for (int i = 0; i < B; ++i) {
+            if (i > 9) {
+                simbolos[i] = 'A' + car++;
+            } else {
+                simbolos[i] = '0' + i;
             }
+
         }
     }
 };
@@ -96,22 +102,21 @@ Number<L + 1, P, Y> operator+( const Number<L, P, Y> &op1,const  Number<U, V, R>
     return aux;
 }
 
-/*
-Number operator-(const Number& op1, const Number& op2)const{
-    int tamano=0,base=0,numero=0;
-    Number<tamano,base> aux(numero);
+template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+Number<L+1, P, Y> operator-(const Number<L, P, Y> &op1, const Number<U, V, R>& op2){
+    Number<L+1,P,Y> aux(op1.dec()-op2.dec());
     return aux;
 }
-Number operator*(const Number& op1, const Number& op2)const{
-    int tamano=0,base=0,numero=0;
-    Number<tamano,base> aux(numero);
+template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+Number<L*U,V,R>operator*(const Number<L,P,Y>& op1, const Number<U,V,R>& op2){
+    Number<L*U,P,Y> aux(op1.dec()*op2.dec());
     return aux;
 }
-Number operator/(const Number& op1, const Number& op2)const{
-    int tamano=0,base=0,numero=0;
-    Number<tamano,base> aux(numero);
+template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+Number<L*U,V,R> operator/(const Number<L,P,Y>& op1, const Number<U,V,R>& op2){
+    Number<L*U,P,Y> aux(op1.dec()*op2.dec());
     return aux;
-}
+}/*
 Number operator%(const Number& op1, const Number& op2)const{
     int tamano=0,base=0,numero=0;
     Number<tamano,base> aux(numero);
