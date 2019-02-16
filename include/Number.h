@@ -50,7 +50,20 @@ public:
     friend Number<L*U,P,Y> operator*(const Number<L,P,Y>& op1, const Number<U,V,R>& op2);
     template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
     friend Number<L*U,P,Y> operator/(const Number<L,P,Y>& op1, const Number<U,V,R>& op2);
-
+    template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+    friend Number<L*U,P,Y> operator%(const Number<L,P,Y>& op1, const Number<U,V,R>& op2);
+    template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+    friend bool operator!=(const Number<L,P,Y>& op1, const Number<U,V,R>& op2);
+    template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+    friend bool operator==(const Number<L,P,Y>& op1, const Number<U,V,R>& op2);
+    template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+    friend bool operator<=(const Number<L,P,Y>& op1, const Number<U,V,R>& op2);
+    template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+    friend bool operator>=(const Number<L,P,Y>& op1, const Number<U,V,R>& op2);
+    template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+    friend bool operator<(const Number<L,P,Y>& op1, const Number<U,V,R>& op2);
+    template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+    friend bool operator>(const Number<L,P,Y>& op1, const Number<U,V,R>& op2);
 private:
     int numero_real(char a)const{
         int resl= 0;
@@ -124,44 +137,44 @@ template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
 Number<L*U,P,Y> operator/(const Number<L,P,Y>& op1, const Number<U,V,R>& op2){
     Number<L*U,P,Y> aux(op1.dec()/op2.dec());
     return aux;
-}/*
-Number operator%(const Number& op1, const Number& op2)const{
-    int tamano=0,base=0,numero=0;
-    Number<tamano,base> aux(numero);
+}
+template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+Number<L*U,P,Y> operator%(const Number<L,P,Y>& op1, const Number<U,V,R>& op2){
+    Number<L*U,P,Y> aux(op1.dec()%op2.dec());
     return aux;
 }
+
+template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+bool operator==(const Number<L,P,Y>& op1, const Number<U,V,R>& op2){
+    return (op1.dec()==op2.dec());
+}
+template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+bool operator!=(const Number<L,P,Y>& op1, const Number<U,V,R>& op2){
+    return (op1.dec()!=op2.dec());
+}
+template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+bool operator<(const Number<L,P,Y>& op1, const Number<U,V,R>& op2){
+    return (op1.dec()<op2.dec());
+}
+template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+bool operator>(const Number<L,P,Y>& op1, const Number<U,V,R>& op2){
+    return (op1.dec()>op2.dec());
+}
+template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+bool operator<=(const Number<L,P,Y>& op1, const Number<U,V,R>& op2){
+    return (op1.dec()<=op2.dec());
+}
+template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
+bool operator>=(const Number<L,P,Y>& op1, const Number<U,V,R>& op2){
+    return (op1.dec()>=op2.dec());
+}
+/*
 Number operator++(const Number& op1, const Number& op2)const{
     int tamano=0,base=0,numero=0;
     Number<tamano,base> aux(numero);
     return aux;
 }
 Number operator--(const Number& op1, const Number& op2)const{
-    int tamano=0,base=0,numero=0;
-    Number<tamano,base> aux(numero);
-    return aux;
-}
-
-bool operator==(const Number& op1, const Number& op2)const{
-    int tamano=0,base=0,numero=0;
-    Number<tamano,base> aux(numero);
-    return aux;
-}
-bool operator>(const Number& op1, const Number& op2)const{
-    int tamano=0,base=0,numero=0;
-    Number<tamano,base> aux(numero);
-    return aux;
-}
-bool operator<(const Number& op1, const Number& op2)const{
-    int tamano=0,base=0,numero=0;
-    Number<tamano,base> aux(numero);
-    return aux;
-}
-bool operator=>(const Number& op1, const Number& op2)const{
-int tamano=0,base=0,numero=0;
-Number<tamano,base> aux(numero);
-return aux;
-}
-bool operator<(const Number& op1, const Number& op2)const{
     int tamano=0,base=0,numero=0;
     Number<tamano,base> aux(numero);
     return aux;

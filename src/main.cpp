@@ -7,7 +7,7 @@
 
 int main() {
 
-    Number<NU,BS> A(255);
+    Number<NU,BS> A(122);
     A.write(std::cout);
     Number<NU1,BS1> B(255);
     std::cout<<"\n";
