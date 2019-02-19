@@ -64,7 +64,7 @@ try {
     H.write(std::cout);
     std::cout<<") en base "<<BS<<"\n";
     std::cout << "\nProcedemos a realizar uso de los operadores relacionales\n"
-                 "Comprovacion de igualdad\n";
+                 "Comprobacion de igualdad\n";
     std::cout<<"El numero (";
     A.write(std::cout);
     std::cout<<") en base "<<BS<<" == (";
@@ -75,7 +75,7 @@ try {
     }else{
         std::cout<<"No, son distintos\n";
     }
-    std::cout<<"Comprovacion de no igualdad\n";
+    std::cout<<"Comprobacion de no igualdad\n";
     std::cout<<"El numero (";
     A.write(std::cout);
     std::cout<<") en base "<<BS<<" != (";
@@ -86,7 +86,7 @@ try {
     }else{
         std::cout<<"No, son iguales\n";
     }
-    std::cout<<"Comprovacion superioridad\n";
+    std::cout<<"Comprobacion superioridad\n";
     std::cout<<"El numero (";
     A.write(std::cout);
     std::cout<<") en base "<<BS<<" > (";
@@ -97,7 +97,7 @@ try {
     }else{
         std::cout<<"No, no es mayor\n";
     }
-    std::cout<<"Comprovacion superioridad o igualdad\n";
+    std::cout<<"Comprobacion superioridad o igualdad\n";
     std::cout<<"El numero (";
     A.write(std::cout);
     std::cout<<") en base "<<BS<<" >= (";
@@ -108,7 +108,7 @@ try {
     }else{
         std::cout<<"No, no es mayor ni igual\n";
     }
-    std::cout<<"Comprovacion inferioridad\n";
+    std::cout<<"Comprobacion inferioridad\n";
     std::cout<<"El numero (";
     A.write(std::cout);
     std::cout<<") en base "<<BS<<" < (";
@@ -119,7 +119,7 @@ try {
     }else{
         std::cout<<"No, no es menor\n";
     }
-    std::cout<<"Comprovacion inferioridad o igualdad\n";
+    std::cout<<"Comprobacion inferioridad o igualdad\n";
     std::cout<<"El numero (";
     A.write(std::cout);
     std::cout<<") en base "<<BS<<" <= (";
