@@ -3,4 +3,4 @@ project(Pr1)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Pr1 src/main.cpp include/Number.h)
+add_executable(Pr2 src/main.cpp include/Number.h)

@@ -1,12 +1,29 @@
 #include <iostream>
 #include "../include/Number.h"
-#define NU 5
-#define NU1 5
-#define BS 16
-#define BS1 2
+#define NU 12
+#define NU1 12
+#define NU2 12
 
+#define BS 2
+#define BS1 16
+#define BS2 8
+//TODO: En lugar de utilizar un​ vector<T>, el atributo se declara como un puntero a ​T
+//TODO: Constructor reserva y destructor elimina memoria dinamica
+//TODO: Constructor de copia y sobrecarga de asignacion
+
+//TODO: Añadir atributo de signo
+//TODO: El constructor acepta positivos y negativo las operaciones aceptan negativos y positivos
+//TODO: En caso de binario se empleara el complemento a2 con el signo en el bit mas significativo COn especializacion
+//TODO: Implentacion de las operaciones para complemnto 2
+
+//TODO: Crear clase NumberException que deriva de exception de la lib stdar
+//TODO: Exepciones para cuando se intenta mostrar numero con base mañor de 16 y para cuando el numero se sale de rango
+
+//TODO: Main para comprobar que funciona todo sobretodo binario dec y hex
+//TODO: Se solicitaran numeros, realizara operaciones y mostrara por pantalla los resultados
+//TODO: En caso excepcion derivada de NumberException, se informa al usuario y se continua con la ejecucion
 int main() {
-try {
+try {/*
     std::cout<<"Introduce el numero a codificar con "<<NU<<" caracteres en la base "<<BS<<" :";
     int a;
     std::cin>>a;
@@ -122,7 +139,7 @@ try {
     std::cout<<"Comprobacion inferioridad o igualdad\n";
     std::cout<<"El numero (";
     A.write(std::cout);
-    std::cout<<") en base "<<BS<<" <= (";
+    std::cout<<") en base "<<BS<<" < (";
     B.write(std::cout);
     std::cout<<") en base "<<BS1<<" ?\n";
     if (A<=B){
@@ -131,7 +148,16 @@ try {
         std::cout<<"No, no es menor ni igual\n";
     }
 
+*/
+  Number<NU, BS> A(1);
+  Number<NU1, BS1> B(2);
+  Number<NU2, BS2> C(7);
 
+  Number<NU+1,BS> D = A + (B * C);
+  D.write(std::cout);
+  std::cout<<"\n";
+  D.write_mof(std::cout, 16);
+  std::cout<<"\n";
 }
 catch (std::system_error& e) {
     std::cerr << "Pr1 : " << e.what() << "\n";
@@ -141,4 +167,5 @@ catch (...){
     return 1;
 }
     return 0;
+
 }

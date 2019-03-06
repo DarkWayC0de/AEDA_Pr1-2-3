@@ -35,6 +35,25 @@ public:
             }
         }
     }
+  std::ostream& write_mof(std::ostream &os, int a){
+    std::vector<T> number2_;
+    T simbolos[a];
+    rellenar_vector_de_datos(simbolos,a);
+    div_Base(this->dec(),simbolos, number2_,a);
+    if (number2_.size()>N){
+      std::cout<<"El numero "<<a<<" no puede ser representado en "<<N<<" caracteres de la base "<<B<<" \n";
+      number2_.clear();
+      throw std::system_error(errno, std::system_category(), "no se pudo crear el Number");
+    }
+    for (auto i = static_cast<int>(N - 1); i >= 0; i--) {
+      if(i<number2_.size()){
+        os << number2_.at(i);
+      }else{
+        os << 0;
+      }
+    }
+  }
+
     size_t get_N(){
         return N;
     }
@@ -85,15 +104,15 @@ private:
     }
 
     void to_base(int a){
-        //Creamos un vector con los datos que representaran nuestros numeros
-        T simbolos[B];
-        rellenar_vector_de_datos(simbolos);
-        div_Base(a,simbolos);
-        if (number_.size()>N){
-            std::cout<<"El numero "<<a<<" no puede ser representado en "<<N<<" caracteres de la base "<<B<<" \n";
-            number_.clear();
-            throw std::system_error(errno, std::system_category(), "no se pudo crear el Number");
-        }
+      //Creamos un vector con los datos que representaran nuestros numeros
+      T simbolos[B];
+      rellenar_vector_de_datos(simbolos);
+      div_Base(a,simbolos);
+      if (number_.size()>N){
+        std::cout<<"El numero "<<a<<" no puede ser representado en "<<N<<" caracteres de la base "<<B<<" \n";
+        number_.clear();
+        throw std::system_error(errno, std::system_category(), "no se pudo crear el Number");
+      }
     }
     void div_Base(int a, T simbolos[]){
         if(a<B){
@@ -104,10 +123,19 @@ private:
 
         }
     }
-    void rellenar_vector_de_datos(T simbolos[])const{
+  void div_Base(int a, T simbolos[],std::vector<T> &number_2, int b){
+    if(a<b){
+      number_2.push_back(simbolos[a]);
+    }else{
+      number_2.push_back(simbolos[a%b]);
+      div_Base(static_cast<int>(a / b), simbolos);
+
+    }
+  }
+    void rellenar_vector_de_datos(T simbolos[], int a=B)const{
         if(std::is_same<T,char>::value != 0) {
             int car = 0;
-            for (int i = 0; i < B; ++i) {
+            for (int i = 0; i < a; ++i) {
                 if (i > 9) {
                     simbolos[i] = 'A' + car++;
                 } else {
@@ -117,7 +145,7 @@ private:
             }
         } else{
             if(std::is_same<T,int>::value != 0){
-                for (int i = 0; i < B; ++i) {
+                for (int i = 0; i < a; ++i) {
                     simbolos[i]=i;
                 }
             }
