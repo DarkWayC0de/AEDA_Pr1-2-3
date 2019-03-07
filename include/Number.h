@@ -223,8 +223,12 @@ Number<L*U,P,Y>operator*(const Number<L,P,Y>& op1, const Number<U,V,R>& op2){
 }
 template<size_t U, size_t V, class R, size_t L, size_t P, class Y>
 Number<L*U,P,Y> operator/(const Number<L,P,Y>& op1, const Number<U,V,R>& op2){
-  int a = op1.dec()/op2.dec();
-  Number<L*U,P,Y> aux(a);
+  int a = op1.dec();
+  int b = op2.dec();
+  if (a ==0 || b ==0){
+    throw divzero();
+  }
+  Number<L*U,P,Y> aux(a/b);
   return aux;
 }
 template<size_t U, size_t V, class R, size_t L, size_t P, class Y>

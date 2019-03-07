@@ -105,11 +105,11 @@ private:
           fir1 =true;
         }
       }
-      if(index<N-1){
+      if(index<=N-1){
         for (int i = index+1; i <N ; ++i) {
           number[i]='1';
         }
-        index= static_cast<int>(N-2);
+        index= static_cast<int>(N-1);
       }else{
         throw fuera_rango_exception();
       }

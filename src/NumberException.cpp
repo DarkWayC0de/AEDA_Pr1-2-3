@@ -15,3 +15,6 @@ const char* fuera_rango_exception::what() const noexcept{
 const char* base_negativa::what() const noexcept{
   return "Se ha indicado una base que no es apta para hacer una representacion numerica";
 }
+const char* divzero::what() const noexcept{
+  return "Se a intentado hacer una divicion con un 0";
+}
