@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include "../include/Number.h"
+#include "../include/Number_bin.h"
 #define NU 12
 #define NU1 12
 #define NU2 12
@@ -12,21 +13,31 @@
 #define BS 2
 #define BS1 16
 #define BS2 8
-//TODO: En lugar de utilizar un​ vector<T>, el atributo se declara como un puntero a ​T
-//TODO: Constructor reserva y destructor elimina memoria dinamica
-//TODO: Constructor de copia y sobrecarga de asignacion
-
-//TODO: Añadir atributo de signo
-//TODO: El constructor acepta positivos y negativo las operaciones aceptan negativos y positivos
-//TODO: En caso de binario se empleara el complemento a2 con el signo en el bit mas significativo COn especializacion
-//TODO: Implentacion de las operaciones para complemnto 2
-
-//TODO: Crear clase NumberException que deriva de exception de la lib stdar
-//TODO: Exepciones para cuando se intenta mostrar numero con base mañor de 16 y para cuando el numero se sale de rango
 
 //TODO: Main para comprobar que funciona todo sobretodo binario dec y hex
 //TODO: Se solicitaran numeros, realizara operaciones y mostrara por pantalla los resultados
 //TODO: En caso excepcion derivada de NumberException, se informa al usuario y se continua con la ejecucion
 int main() {
+  std::cout<<"Introduce el numero a codificar con "<<NU<<" caracteres en la base "<<BS<<" :";
+  int a;
+  std::cin>>a;
+  Number<NU, BS> A(a);
+  std::cout<<"El numero "<<a<<" codificado con "<<NU<<" caracteres en la base "<<BS<<" (";
+  A.write(std::cout);
+  std::cout << ")\n";
+  std::cout<<"Introduce el numero a codificar con "<<NU<<" caracteres en la base "<<BS<<" :";
+  int b;
+  std::cin>>b;
+  Number<NU,BS> B(b);
+  std::cout<<"El numero "<<b<<" codificado con "<<NU<<" caracteres en la base "<<BS<<" (";
+  B.write(std::cout);
+  std::cout << ")\n";
+  std::cout<<"Introduce el numero a codificar con "<<NU1<<" caracteres en la base "<<BS1<<" :";
+
+  std::cout<<std::endl;
+  Number<NU+1,BS> C = A-B;
+  C.write(std::cout);
+  Number<NU+1,BS> D = A-B;
+  D.write(std::cout);
 
 }
