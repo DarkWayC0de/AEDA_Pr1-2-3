@@ -10,7 +10,7 @@
 #define NU1 12
 #define NU2 12
 
-#define BS 2
+#define BS 16
 #define BS1 16
 #define BS2 8
 
@@ -25,7 +25,7 @@ int main() {
       try{
       A.write(std::cout);
     }catch (NumberException& exception) {
-      std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+      std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
     }
     std::cout << ")\n";
     std::cout << "Introduce el numero a codificar con " << NU << " caracteres en la base " << BS << " :";
@@ -37,7 +37,7 @@ int main() {
       try {
         B.write(std::cout);
       }catch (NumberException& exception) {
-        std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+        std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
       }
       std::cout << ")\n";
 
@@ -49,19 +49,19 @@ int main() {
         try {
           A.write(std::cout);
         }catch(NumberException& exception) {
-          std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+          std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
         }
         std::cout << ") en base " << BS << " / (";
         try {
           B.write(std::cout);
         }catch(NumberException& exception) {
-          std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+          std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
         }
         std::cout << ") en base " << BS << " = (";
         try {
           G.write(std::cout);
         }catch(NumberException& exception) {
-          std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+          std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
         }
         std::cout << ") en base " << BS
                   << "\n"
@@ -69,12 +69,12 @@ int main() {
         try {
           H.write(std::cout);
         }catch(NumberException& exception) {
-          std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+          std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
         }
         std::cout << ") en base " << BS << "\n";
 
       }catch(NumberException& exception) {
-        std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+        std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
       }
 
       std::cout << "Procedemos a realizar la suma de los dos numeros codificados\n";
@@ -84,23 +84,23 @@ int main() {
         try {
           A.write(std::cout);
         }catch(NumberException& exception) {
-          std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+          std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
         }
         std::cout << ") en base " << BS << " + (";
         try {
           B.write(std::cout);
         }catch(NumberException& exception) {
-          std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+          std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
         }
         std::cout << ") en base " << BS << " = (";
         try {
           C.write(std::cout);
         }catch(NumberException& exception) {
-          std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+          std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
         }
         std::cout << ") en base " << BS << "\n";
       }catch (NumberException& exception) {
-        std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+        std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
       }
       std::cout << "Procedemos a realizar la resta de los dos numeros codificados\n";
       try {
@@ -109,23 +109,23 @@ int main() {
         try{
           A.write(std::cout);
         }catch(NumberException& exception) {
-          std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+          std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
         }
         std::cout << ") en base " << BS << " - (";
         try{
           B.write(std::cout);
         }catch(NumberException& exception) {
-          std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+          std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
         }
         std::cout << ") en base " << BS << " = (";
         try{
           D.write(std::cout);
         }catch(NumberException& exception) {
-          std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+          std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
         }
         std::cout << ") en base " << BS << "\n";
       }catch(NumberException& exception) {
-        std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+        std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
       }
       std::cout << "Procedemos a realizar la multiplicacion de los dos numeros codificados\n";
       try{
@@ -134,23 +134,23 @@ int main() {
         try {
           A.write(std::cout);
         }catch(NumberException& exception) {
-          std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+          std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
         }
         std::cout << ") en base " << BS << " * (";
         try {
           B.write(std::cout);
         }catch(NumberException& exception) {
-          std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+          std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
         }
         std::cout << ") en base " << BS << " = (";
         try {
           F.write(std::cout);
         }catch(NumberException& exception) {
-          std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+          std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
         }
         std::cout << ") en base " << BS << "\n";
       }catch(NumberException& exception) {
-        std::cout << "\nSe ha producido el error " << exception.what() << "\n";
+        std::cout << "\nSe ha producido el error " << exception.what() << "\n\n";
       }
 
       std::cout<<"Gracias por hacer uso de la calculadora PR2\n";

@@ -149,21 +149,7 @@ private:
         }
       }
     }
-  /*void div_2ase(int a, T simbolos[],T* &number_2, int b, int &index2_, int pos=0){
-    if(pos>N){
-      std::cout<<"El numero "<<a<<" no puede ser representado en "<<N<<" caracteres de la base "<<2<<" \n";
-      throw std::system_error(errno, std::system_category(), "no se pudo crear el Number");
-    }else {
-      if (a < b) {
-        number_2[pos] = simbolos[a];
-        index2_=pos;
-      } else {
-        number_2[pos] = simbolos[a % b];
-        div_2ase(static_cast<int>(a / b),simbolos,number_2, b,index2_,++pos);
 
-      }
-    }
-  }*/
     void rellenar_vector_de_datos(T simbolos[], int a=static_cast<int>(2))const{
         if(std::is_same<T,char>::value != 0) {
             int car = 0;
