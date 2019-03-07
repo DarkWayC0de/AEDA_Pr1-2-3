@@ -7,12 +7,9 @@
 #include "../include/Number.h"
 #include "../include/Number_bin.h"
 #define NU 12
-#define NU1 12
-#define NU2 12
 
 #define BS 16
-#define BS1 16
-#define BS2 8
+
 
 
 int main() {
