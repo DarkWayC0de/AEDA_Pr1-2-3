@@ -5,18 +5,20 @@
 #ifndef PR1_NUMBER_H
 #define PR1_NUMBER_H
 
+#include "iostream"
+#include "NumberBase.h"
 #include <cmath>
-#include "NumberException.h"
+
 
 template <size_t N, size_t B, class T = char>
-class Number{
+class Number: public NumberBase{
 private:
     T* number_;
     int index_;
     bool neg_;
 public:
 
-    explicit Number(int valor=0):index_(0),neg_(false){
+    explicit Number(int valor=0):index_(0),neg_(false),NumberBase(static_cast<int>(B),static_cast<int>(N)){
       if(B<=0){
         throw  base_negativa();
       }else {
@@ -37,14 +39,14 @@ public:
       index_ = obj.index_;
       neg_=obj.neg_;
     }
-    ~Number(){
+    ~Number() override {
       delete[] number_;
       number_=NULL;
       index_=0;
       neg_=false;
     }
 
-    std::ostream& write(std::ostream &os)const{
+    std::ostream& write(std::ostream &os)const override{
       if(B <=16) {
         if (neg_) {
           os << "-";
@@ -147,7 +149,7 @@ private:
         return  resl;
     }
 
-    void to_base(int a){
+    void to_base(int a)override{
       //Creamos un vector con los datos que representaran nuestros numeros
       T simbolos[B];
       rellenar_vector_de_datos(simbolos);

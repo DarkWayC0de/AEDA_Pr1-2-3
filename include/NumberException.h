@@ -24,5 +24,9 @@ class divzero : public NumberException{
  public:
   const char* what() const noexcept override;
 };
+class wrong_number_exception: public NumberException{
+ public:
+  const char* what() const noexcept override;
+};
 
 #endif //PR1_NUMBEREXCEPTION_H

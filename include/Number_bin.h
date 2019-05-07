@@ -4,17 +4,17 @@
 
 #ifndef PR1_NUM2ER_BIN_H
 #define PR1_NUM2ER_BIN_H
-
+#include "NumberBase.h"
 #include <cmath>
 
 template <size_t N, class T>
-class Number<N,2,T>{
+class Number<N,2,T> : public NumberBase{
 private:
     T* number_;
     int index_;
 public:
 
-    explicit Number(int valor=0):index_(0){
+    explicit Number(int valor=0):index_(0),NumberBase(2, static_cast<int>(N)){
             number_=new T[N];
             if (valor >= 0) {
                 to_base(valor);
@@ -31,14 +31,14 @@ public:
       index_ = obj.index_;
       //neg_=obj.neg_;
     }
-    ~Number(){
+    ~Number() override {
           delete[] number_;
           number_=NULL;
           index_=0;
           //neg_=false;
     }
 
-    std::ostream& write(std::ostream &os)const{
+    std::ostream& write(std::ostream &os)const override {
       /*if(neg_){
         os<<"-";
       }*/
@@ -128,7 +128,7 @@ private:
         return  resl;
     }
 
-    void to_base(int a){
+    void to_base(int a) override {
       //Creamos un vector con los datos que representaran nuestros numeros
 
       T simbolos[2];
